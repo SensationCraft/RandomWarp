@@ -12,6 +12,8 @@ import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Player;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
 
 public class Portal
@@ -22,7 +24,8 @@ public class Portal
     private final String world;
     private Material portalType = Material.AIR;
     private int[][] endpoints;
-    private final Orientation orientation;
+    @SuppressWarnings("unused")
+	private final Orientation orientation;
     private boolean checkForFeet = true;
     private final Random rand = new Random();
     private static final String CALCULATING = ChatColor.BLUE + "" + ChatColor.BOLD + "" + ChatColor.ITALIC + "Calculating location, please wait...";
@@ -173,6 +176,7 @@ public class Portal
             player.getWorld().playSound(player.getLocation(), Sound.ENDERMAN_TELEPORT, 1.0F, 31.0F);
             player.sendMessage(TELEPORTING);
             player.teleport(loc);
+            player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 200, 3), true);
             return true;
         }
         return false;
@@ -217,7 +221,8 @@ public class Portal
             this.neighbours = neighbours;
         }
 
-        public BlockFace[] getNeighbours()
+        @SuppressWarnings("unused")
+		public BlockFace[] getNeighbours()
         {
             return this.neighbours;
         }

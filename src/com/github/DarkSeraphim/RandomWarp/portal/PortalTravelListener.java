@@ -17,7 +17,7 @@ public class PortalTravelListener
 {
 
     private final PortalManager manager;
-    private final Set<String> freshTravelers = new HashSet();
+    private final Set<String> freshTravelers = new HashSet<String>();
 
     public PortalTravelListener(PortalManager manager)
     {

@@ -12,7 +12,7 @@ public class PortalManager
 {
 
     JavaPlugin plugin;
-    Set<Portal> portals = new HashSet();
+    Set<Portal> portals = new HashSet<Portal>();
 
     public void onEnable(JavaPlugin plugin)
     {
